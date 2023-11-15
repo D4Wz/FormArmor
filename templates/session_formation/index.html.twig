@@ -1,0 +1,31 @@
+{% extends 'admin_layout.html.twig' %}
+{% block FormArmor_body %}
+	<h2>AFFICHAGE DES PLANS DE FORMATION</h2>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Formation Id</th>
+				<th>nombre d'inscrit</th>
+				<th>nombre de place</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				{% for session in lesSessions %}
+					<td>{{ session.dateDebut|date('Y-m-d') }}</td>
+					<td>{{ session.formation.id }}</td>
+					<td>{{ session.nbInscrits }}</td>
+					<td>{{ session.nbPlaces }}</td>
+				{% endfor %}
+			</tr>
+		</tbody>
+	</table>
+
+	<script>
+		$(function () {
+$('#menu5').attr('class', 'active');
+});
+	</script>
+
+{% endblock %}
